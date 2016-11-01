@@ -72,7 +72,7 @@ def generateSubmitPage(player, week):
   print '  var matches = [];'
   print '  var picks = {};'
   print '  for (i = 0; i < chx.length; i++) {'
-  print '    if (chx[i].type == "radio") {'
+  print '    if (chx[i].type == "radio" && chx[i].style.display != "none") {'
   print '      if (!(chx[i].name in picks)) {'
   print '        matches.push(chx[i].name);'
   print '        picks[chx[i].name] = false;'
