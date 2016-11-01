@@ -1,0 +1,242 @@
+body {
+  padding-top: 50px;
+  font-size: 16px;
+}
+.title {
+  padding: 0px 0px;
+  text-align: center;
+}
+
+ol.ruleslist > li {
+  margin: 1em 0;
+}
+
+.scores-table {
+  width: auto;
+  right-margin: auto;
+  font-size: 11pt;
+}
+
+.sidebar {
+  /*position: fixed;*/
+  padding-top: 20px;
+  float: left;
+}
+
+.loginbox {
+  width: 440px;
+  border: 2px solid rgba(86,61,124,.5);
+  border-radius: 10px;
+  padding: 10px;"
+  -moz-box-shadow: 0 0 10px #888;
+  -webkit-box-shadow: 0 0 10px #888;
+  box-shadow: 0 0 10px #888;
+}
+
+/* Style settings of matches tables */
+
+.main-table {
+  width: auto;
+  margin-right: auto;
+  white-space: nowrap;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.main-table td.header {
+  background-color: #FFFFA0;
+  font-weight: bold;
+}
+
+.main-table tr.yellow-header > td {
+ background-color: #FFFFA0;
+  font-weight: bold;
+}
+
+.main-table td {
+  background-color: #F2F2F2;
+  text-align: center;
+  vertical-align: baseline !important;
+}
+
+.main-table td.date {
+  text-align: left;
+}
+
+.main-table td.team1 {
+  text-align: right;
+}
+
+.main-table td.team2 {
+  text-align: left;
+}
+
+.main-table td span.winning {
+  font-weight: bold;
+}
+
+.main-table td span.winner {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* BLINK ANIMATION */
+
+@-webkit-keyframes blink { 
+  from {color: rgba(0,0,0,1);}
+  to {color: rgba(255,0,0,1);}
+}
+@-moz-keyframes blink { 
+  from {color: rgba(0,0,0,1);}
+  to {color: rgba(255,0,0,1);}
+}
+@-o-keyframes blink { 
+  from {color: rgba(0,0,0,1);}
+  to {color: rgba(255,0,0,1);}
+}
+@keyframes blink { 
+  from {color: rgba(0,0,0,1);}
+  to {color: rgba(255,0,0,1);}
+}
+.main-table td span.redzone {
+  animation-name: blink
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  -webkit-animation-name: blink;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+}
+
+.main-table td.goodpick {
+  background-color: #93E7AC !important;
+}
+
+.main-table td.goodpick:hover {
+  background-color: #82CC98 !important;
+}
+
+.main-table td.badpick {
+  background-color: #E79393 !important;
+}
+
+.main-table td.badpick:hover {
+  background-color: #CC8282 !important;
+}
+
+.main-table td.tiedgame {
+  background-color: #CCCCCC !important;
+}
+
+.main-table td.tiedgame:hover {
+  background-color: #B2B2B2 !important;
+}
+
+.main-table td.border_highlight {
+  border-left: 1px solid;
+  border-right: 1px solid !important;
+}
+
+.main-table tr.boldtext > td {
+  font-weight: bold;
+}
+
+/* Registration page */
+
+.registration {
+  width: 700px;
+  border: double black;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+.regtable td {
+  padding: 4px;
+  vertical-align: middle;
+}
+
+.shortinput {
+  width: 200px;
+  white-space: nowrap;
+}
+
+/* Generic table alignment class */
+.table-left-align td {
+  text-align: left;
+}
+
+/* Tooltips styling */
+
+div.tooltip-inner {
+  font-size: 14px;
+}
+
+.name-tooltip + .tooltip > .tooltip-inner {
+  max-width: 400px;
+}
+
+.info-tooltip + .tooltip > .tooltip-inner {
+  max-width: 300px;
+  text-align: left;
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+
+.legend-tooltip + .tooltip > .tooltip-inner {
+  max-width: 280px;
+  text-align: left;
+  white-space: pre-wrap;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+/* For easier pick selection */
+label {
+  display: block;
+  margin: 0px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown-backdrop {
+    position: static;
+}
+
+/* Blinking text */
+.blink_me {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 2s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}

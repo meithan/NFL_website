@@ -1,0 +1,72 @@
+# WEEK 8
+25 20 27 10 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W8-JAX@TEN
+30 9 30 10 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W8-WAS@CIN
+0 13 30 10 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W8-ARI@CAR W8-DET@HOU W8-KC@IND W8-NE@BUF W8-NYJ@CLE W8-OAK@TB W8-SEA@NO
+5 16 30 10 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W8-SD@DEN
+25 16 30 10 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W8-GB@ATL
+30 20 30 10 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W8-PHI@DAL
+30 20 31 10 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W8-MIN@CHI
+# WEEK 9
+25 20 3 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W9-ATL@TB
+0 13 6 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W9-DAL@CLE W9-DET@MIN W9-JAX@KC W9-NYJ@MIA W9-PHI@NYG W9-PIT@BAL
+5 16 6 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W9-CAR@LA W9-NO@SF
+25 16 6 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W9-IND@GB W9-TEN@SD
+30 20 6 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W9-DEN@OAK
+30 20 7 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W9-BUF@SEA
+# WEEK 10
+25 20 10 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W10-CLE@BAL
+0 13 13 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W10-ATL@PHI W10-CHI@TB W10-DEN@NO W10-GB@TEN W10-HOU@JAX W10-KC@CAR W10-LA@NYJ W10-MIN@WAS
+5 16 13 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W10-MIA@SD
+25 16 13 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W10-DAL@PIT W10-SF@ARI
+30 20 13 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W10-SEA@NE
+30 20 14 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W10-CIN@NYG
+# WEEK 11
+25 20 17 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W11-NO@CAR
+0 13 20 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W11-ARI@MIN W11-BAL@DAL W11-BUF@CIN W11-CHI@NYG W11-JAX@DET W11-PIT@CLE W11-TB@KC W11-TEN@IND
+5 16 20 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W11-MIA@LA
+25 16 20 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W11-NE@SF W11-PHI@SEA
+30 20 20 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W11-GB@WAS
+30 20 21 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W11-HOU@OAK
+# WEEK 12
+30 12 24 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W12-MIN@DET
+30 16 24 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W12-WAS@DAL
+30 20 24 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W12-PIT@IND
+0 13 27 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W12-ARI@ATL W12-CIN@BAL W12-JAX@BUF W12-LA@NO W12-NYG@CLE W12-SD@HOU W12-SF@MIA W12-TEN@CHI
+5 16 27 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W12-SEA@TB
+25 16 27 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W12-CAR@OAK W12-KC@DEN
+30 20 27 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W12-NE@NYJ
+30 20 28 11 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W12-GB@PHI
+# WEEK 13
+25 20 1 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W13-DAL@MIN
+0 13 4 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W13-DEN@JAX W13-DET@NO W13-HOU@GB W13-KC@ATL W13-LA@NE W13-MIA@BAL W13-PHI@CIN W13-SF@CHI
+5 16 4 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W13-BUF@OAK
+25 16 4 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W13-NYG@PIT W13-TB@SD W13-WAS@ARI
+30 20 4 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W13-CAR@SEA
+30 20 5 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W13-IND@NYJ
+# WEEK 14
+25 20 8 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W14-OAK@KC
+0 13 11 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W14-ARI@MIA W14-CHI@DET W14-CIN@CLE W14-DEN@TEN W14-HOU@IND W14-MIN@JAX W14-NO@TB W14-PIT@BUF W14-SD@CAR W14-WAS@PHI
+5 16 11 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W14-NYJ@SF
+25 16 11 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W14-ATL@LA W14-SEA@GB
+30 20 11 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W14-DAL@NYG
+30 20 12 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W14-BAL@NE
+# WEEK 15
+25 20 15 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W15-LA@SEA
+25 20 17 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W15-MIA@NYJ
+0 13 18 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W15-CLE@BUF W15-DET@NYG W15-GB@CHI W15-IND@MIN W15-JAX@HOU W15-PHI@BAL W15-TB@DAL W15-TEN@KC
+5 16 18 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W15-NO@ARI W15-SF@ATL
+25 16 18 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W15-NE@DEN W15-OAK@SD
+30 20 18 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W15-PIT@CIN
+30 20 19 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W15-CAR@WAS
+# WEEK 16
+25 20 22 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W16-NYG@PHI
+0 13 24 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W16-ATL@CAR W16-MIA@BUF W16-MIN@GB W16-NYJ@NE W16-SD@CLE W16-TB@NO W16-TEN@JAX W16-WAS@CHI
+5 16 24 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W16-IND@OAK
+25 16 24 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W16-ARI@SEA W16-SF@LA
+25 20 24 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W16-CIN@HOU
+30 16 25 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W16-BAL@PIT
+30 20 25 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W16-DEN@KC
+30 20 26 12 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W16-DET@DAL
+# WEEK 17
+0 13 1 1 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W17-BAL@CIN W17-BUF@NYJ W17-CAR@TB W17-CHI@MIN W17-CLE@PIT W17-DAL@PHI W17-GB@DET W17-HOU@TEN W17-JAX@IND W17-NE@MIA W17-NO@ATL W17-NYG@WAS
+25 16 1 1 * $HOME/public_html/NFL2016/cgi-bin/email_script.py W17-ARI@LA W17-KC@SD W17-OAK@DEN W17-SEA@SF

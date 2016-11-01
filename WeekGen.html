@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+
+<h3>Week Generator</h3>
+
+1. Go <s><a href="http://espn.go.com/nfl/schedule" target="_blank">HERE</a></s> <a href="http://www.cbssports.com/nfl/schedules/regular" target="_blank">HERE</a> and copy week table
+
+<br><br>
+
+2. Fill in the following details
+
+<br><br>
+
+<form name="form1" action="/NFL2016/cgi-bin/WeekGenerator.py" method="POST">
+
+Year: <input type="text" size="1" maxlength="4" name="year" /><br>
+Timezone: <input type="text" size="1" maxlength="4" name="tzone" /> 'EDT' or 'ET' &mdash; modify manually if needed<br>
+<br>
+3. Paste week table here (be sure to get all cells, including week byes):
+
+<br><br>
+
+<textarea rows="15" cols="80" name="inputTxt" id="inputTxt"></textarea>
+
+<br><br>
+
+<input type="submit" value="Generate" onClick="">
+&nbsp;|&nbsp;
+<input type="button" value="Clear" onClick="document.getElementById('inputTxt').value = '';">
+&nbsp;|&nbsp;
+<input type="reset" value="Reset">
+
+</form>
+
+</body>
+</html>
