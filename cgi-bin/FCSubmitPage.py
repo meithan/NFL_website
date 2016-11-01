@@ -159,7 +159,9 @@ def generateSubmitPage(player, week):
     print '<td class="number">%i</td>' % (idx+1)
     
     # Time
-    print '<td>%s</td>' % (match.DateTime.astimezone(mexicoTZ).strftime("%H:%M"))
+#    print '<td>%s</td>' % (match.DateTime.astimezone(mexicoTZ).strftime("%H:%M"))
+    ampm = " am" if match.DateTime.astimezone(mexicoTZ).hour < 12 else " pm"
+    print '<td>%s</td>' % ((match.DateTime.astimezone(mexicoTZ).strftime("%I:%M").lstrip("0") + ampm))
 
     # Set appropriate styling for the elements
     checked1 = ''

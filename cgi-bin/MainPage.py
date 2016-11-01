@@ -221,8 +221,9 @@ for m in Matches:
     print '<td>%i</td>' % (matchnum)
 
     # Time
-
-    print '<td>%s</td>' % (m.DateTime.astimezone(mexicoTZ).strftime("%H:%M"))
+#    print '<td>%s</td>' % (m.DateTime.astimezone(mexicoTZ).strftime("%H:%M"))
+    ampm = " am" if m.DateTime.astimezone(mexicoTZ).hour < 12 else " pm"
+    print '<td>%s</td>' % ((m.DateTime.astimezone(mexicoTZ).strftime("%I:%M").lstrip("0") + ampm))
 
     # Away Team
 
