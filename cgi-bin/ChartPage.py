@@ -7,176 +7,13 @@ from common import *
 
 # ==================================================
 
-# Puntos Totales
-def Graph1(logged_user, maxweek):
+# Colors
+color_wheel = ["434348", "90ED7D", "F7A35C", "8085E9", "F15C80", "8D4653", "91E8E1", "7CB5EC"]
 
-    if logged_user != None: logged_user = logged_user.Username
-
-    print '<script type="text/javascript">'
-    print "$(function () {"
-    print "$('#chart').highcharts({"
-
-    print "title: {"
-    print "text: ''"
-    #print "text: 'Puntos Totales por Jugador',"
-    #print "x: -20 //center"
-    print "},"
-
-    #print "subtitle: {"
-    #print "text: 'Puntos Totales por Jugador',"
-    #print "x: -20"
-    #print "},"
-
-    print "xAxis: {"
-    print "title: {"
-    print "text: 'Semana'"
-    print "},"
-
-    buffer = "categories: ["
-    for i in range(maxweek+1):
-      if i!=0: buffer += ", "
-      if i==0: buffer += "'Inicio'"
-      else: buffer += "'%i'" % (i)
-    buffer += "]"
-    print buffer
-
-    print "},"
-
-    print "yAxis: {"
-    print "title: {"
-    print "text: 'Puntos Totales'"
-    print "},"
-
-    print "plotLines: [{"
-    print "value: 0,"
-    print "width: 1,"
-    print "color: '#808080'"
-    print "}]"
-    print "},"
-
-    print "plotOptions: {series: {stickyTracking: false}},"
-
-    print "tooltip: {"
-    print "crosshairs: [true, true],"
-    print "shared: false,"
-    print "snap: 2,"
-    print "followPointer: false,"
-    print "hideDelay: 100,"
-    print "valueSuffix: ''"
-    print "},"
-
-    print "legend: {"
-    print "layout: 'vertical',"
-    print "align: 'right',"
-    print "verticalAlign: 'middle',"
-    print "borderWidth: 0"
-    print "},"
-
-    buffer = "series: [{"
-    for i,p in enumerate(Players):
-      buffer += "\nname: '%s'," % (p.Username)
-      if i>4 and p.Username != logged_user: buffer += "\nvisible: false,"
-      buffer += "\ndata: ["
-      for w in range(maxweek+1):
-        if w == 0: buffer += "0"
-        else: buffer += "%i" % (p.TotalPoints[w-1])
-        if w < maxweek: buffer += ", "
-      buffer += "]"
-      if i < len(Players)-1: buffer += "\n}, {"
-    buffer += "\n}]"
-    print buffer
-
-    print "});"
-    print "});"
-    print "</script>"
+# Marker symbols
+symbols_wheel = ["circle", "square", "diamond", "triangle", "triangle-down"]
 
 # --------------------------
-
-# Diferencia con el lider
-def Graph2(logged_user, maxweek):
-
-    if logged_user != None: logged_user = logged_user.Username
-
-    print '<script type="text/javascript">'
-    print "$(function () {"
-    print "$('#chart').highcharts({"
-
-    print "title: {"
-    print "text: ''"
-    #print "text: 'Diferencia de Puntos con el L\u00EDder',"
-    #print "x: -20 //center"
-    print "},"
-
-    #print "subtitle: {"
-    #print "text: 'Puntos Totales por Jugador',"
-    #print "x: -20"
-    #print "},"
-
-    print "xAxis: {"
-    print "title: {"
-    print "text: 'Semana'"
-    print "},"
-
-    buffer = "categories: ["
-    for i in range(maxweek+1):
-      if i!=0: buffer += ", "
-      if i==0: buffer += "'Inicio'"
-      else: buffer += "'%i'" % (i)
-    buffer += "]"
-    print buffer
-
-    print "},"
-
-    print "yAxis: {"
-    print "title: {"
-    print "text: 'Diferencia de Puntos'"
-    print "},"
-
-    print "plotLines: [{"
-    print "value: 0,"
-    print "width: 1,"
-    print "color: '#808080'"
-    print "}]"
-    print "},"
-
-    print "plotOptions: {series: {stickyTracking: false}},"
-
-    print "tooltip: {"
-    print "crosshairs: [true, true],"
-    print "shared: false,"
-    print "snap: 2,"
-    print "followPointer: false,"
-    print "hideDelay: 250,"
-    print "valueSuffix: ''"
-    print "},"
-
-    print "legend: {"
-    print "layout: 'vertical',"
-    print "align: 'right',"
-    print "verticalAlign: 'middle',"
-    print "borderWidth: 0"
-    print "},"
-
-    buffer = "series: [{"
-    for i,p in enumerate(Players):
-      buffer += "\nname: '%s'," % (p.Username)
-      if i>4 and p.Username != logged_user: buffer += "\nvisible: false,"
-      buffer += "\ndata: ["
-      for w in range(maxweek+1):
-        if w == 0: buffer += "0"
-        else: buffer += "%i" % (p.ScoreDiffs[w-1])
-        if w < maxweek: buffer += ", "
-      buffer += "]"
-      if i < len(Players)-1: buffer += "\n}, {"
-    buffer += "\n}]"
-    print buffer
-
-    print "});"
-    print "});"
-    print "</script>"
-
-# ==================================================
-# SHOW PAGE
 
 # HTML header
 print "Content-type:text/html\r\n\r\n"
@@ -220,12 +57,12 @@ for p in Players:
 # Get graph type from passed cgi parameters
 form = cgi.FieldStorage()
 if form.has_key("show"):
-    show = form["show"].value
+    graph_type = int(form["show"].value)
 else:
-    show = "1"
+    graph_type = 1
 
 # For Graph2, Compute score differences to leader
-if show == "2":
+if graph_type == 2:
     for p in Players: p.ScoreDiffs = [0]*17
     for i in range(17):
         top_score = 0
@@ -234,13 +71,125 @@ if show == "2":
         for p in Players:
             p.ScoreDiffs[i] = p.TotalPoints[i] - top_score
 
+# For Graph3, compute weekly ranks
+if graph_type == 3:
+    for p in Players: p.WeekRanks = [1]*17
+    for w in range(17):
+        Players.sort(key=lambda x: x.TotalPoints[w], reverse=True)
+        lastrank = 1
+        for i in range(len(Players)):
+            if i == 0:
+                Players[i].WeekRanks[w] = 1
+            else:
+                if Players[i].TotalPoints[w] == Players[i-1].TotalPoints[w]:
+                    Players[i].WeekRanks[w] = lastrank
+                else:
+                    Players[i].WeekRanks[w] = i+1
+                    lastrank = i+1
+
 # --------------------------
 
 print '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>'
 print '<script src="/NFL%i/js/bootstrap.min.js"></script>' % (season)
 
-if show == "1": Graph1(logged_user, cur_week)
-elif show == "2": Graph2(logged_user, cur_week)
+# --------------------------
+
+# Create graph
+
+print '<script type="text/javascript">'
+print "$(function () {"
+print "$('#chart').highcharts({"
+
+print "title: {"
+print "text: ''"
+print "},"
+
+print "xAxis: {"
+print "title: {"
+print "text: 'Semana'"
+print "},"
+
+buffer = "categories: ["
+for i in range(cur_week+1):
+  if i != 0: buffer += ", "
+  if i == 0: buffer += "'Inicio'"
+  else: buffer += "'%i'" % (i)
+buffer += "]"
+print buffer
+
+print "},"
+
+print "yAxis: {"
+print "title: {"
+if graph_type   == 1: ylabel = "Puntos Totales"
+elif graph_type == 2: ylabel = "Diferencia de Puntos"
+elif graph_type == 3: ylabel = "Posicion Global"
+print 'text: "%s"' % ylabel
+print "},"
+
+if graph_type == 2:
+  print "max: 0.9,"
+  print "tickInterval: 1,"
+  print "startOnTick: false,"
+
+if graph_type == 3:
+#  print "tickInterval: 5,"
+  print "tickPositions: [1, 5, 10, 15, 20, 25, 30],"
+  print "reversed: true,"
+  print "min: -1,"
+  print "startOnTick: false,"
+
+if graph_type != 3:
+  print "plotLines: [{"
+  print "value: 0,"
+  print "width: 1,"
+  print "color: '#808080'"
+  print "}]"
+
+print "},"
+
+print "plotOptions: {series: {stickyTracking: false}},"
+
+print "tooltip: {"
+print "crosshairs: [true, true],"
+print "shared: false,"
+print "snap: 2,"
+print "followPointer: false,"
+print "hideDelay: 250,"
+print "valueSuffix: ''"
+print "},"
+
+print "legend: {"
+print "layout: 'vertical',"
+print "align: 'right',"
+print "verticalAlign: 'middle',"
+print "borderWidth: 0"
+print "},"
+
+buffer = "series: [{"
+for i,p in enumerate(Players):
+  buffer += "\nname: '%s'," % (p.Username)
+  if i > 4 and p.Username != logged_user.Username: buffer += "\nvisible: false,"
+  buffer += "\ndata: ["
+  for w in range(cur_week+1):
+    if w == 0: buffer += "1" if graph_type == 3 else "0"
+    else:
+      if graph_type   == 1: buffer += "%i" % (p.TotalPoints[w-1])
+      elif graph_type == 2: buffer += "%i" % (p.ScoreDiffs[w-1])
+      elif graph_type == 3: buffer += "%i" % (p.WeekRanks[w-1])
+    if w < cur_week: buffer += ", "
+  buffer += "],"
+  buffer += '\ncolor: "#%s",' % color_wheel[i%len(color_wheel)]
+  buffer += '\nmarker:  {symbol: "%s"}' % symbols_wheel[i%len(symbols_wheel)]
+  if i < len(Players)-1: buffer += "\n}, {"
+buffer += "\n}]"
+print buffer
+
+print "});"
+print "});"
+print "</script>"
+
+# --------------------------
 
 print '</head>'
 print '<body>'
@@ -248,13 +197,19 @@ print '<body>'
 bootstrapNavbar("Chart",logged_user)
 
 print '<div class="container">'
-
 print '<br>'
 print '<div style="text-align: center;">'
-if show == "1":
-    print '<h4>Tipo de Gr&aacute;fica: <strong>Puntos Totales</strong> | <a href="/NFL%i/cgi-bin/ChartPage.py?show=2">Diferencia de Puntos</a></h4>' % (season)
-elif show == "2":
-    print '<h4>Tipo de Gr&aacute;fica: <a href="/NFL%i/cgi-bin/ChartPage.py?show=1">Puntos Totales</a> | <strong>Diferencia de Puntos</strong> </h4>' % (season)
+print '<h4>Tipo de Gr&aacute;fica: '
+graph_names = ["Puntos Totales", "Diferencia de Puntos", "Posici&oacute;n Global"]
+buffer = ""
+for i in range(3):
+  if (i+1) == graph_type: buffer += "<strong>"
+  else: buffer += '<a href="/NFL%i/cgi-bin/ChartPage.py?show=%i">' % (season, i+1)
+  buffer += graph_names[i]
+  if (i+1) == graph_type: buffer += "</strong>"
+  else: buffer += '</a>'
+  if i != 2: buffer += " | "
+print buffer
 print '</div>'
 
 print '<script src="/NFL%i/js/highcharts.js"></script>' % (season)
