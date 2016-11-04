@@ -169,7 +169,7 @@ print "},"
 buffer = "series: [{"
 for i,p in enumerate(Players):
   buffer += "\nname: '%s'," % (p.Username)
-  if i > 4 and p.Username != logged_user.Username: buffer += "\nvisible: false,"
+  if i > 4 and (logged_user == None or p.Username != logged_user.Username): buffer += "\nvisible: false,"
   buffer += "\ndata: ["
   for w in range(cur_week+1):
     if w == 0: buffer += "1" if graph_type == 3 else "0"
